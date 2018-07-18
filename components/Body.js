@@ -1,16 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, Alert, TouchableHighlight } from "react-native";
 
-
 // this will be the template for the rest of the app
 class Body extends React.Component{
-
     render(){
         return (
             <View style={styles.body}>
             </View>
         )
-
     }
 }
 
@@ -24,5 +21,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 80
     }
-
 });
