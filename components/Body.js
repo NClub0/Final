@@ -6,6 +6,7 @@ class Body extends React.Component{
     render(){
         return (
             <View style={styles.body}>
+
             </View>
         )
     }

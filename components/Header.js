@@ -1,24 +1,32 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, Alert, TouchableHighlight } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableHighlight, Alert } from "react-native";
+import { styles } from "../constants";
+import { Menu } from "./Menu";
 
-// maybe have the props receive the kind of page to render so that we can hide/show the menu button accordingly
 class Header extends React.Component{
 
+    constructor(){
+        super()
+        this.state = {
+            menuAnimationRunning: false
+        }
+    }
+
     onMenuPress = () => {
-        // Event handler for the navbar button
+        this.setState({
+            menuAnimationRunning: !this.state.menuAnimationRunning
+        })
     }
 
     render(){
         return (
             <View style = {styles.container}>
                 <View style={styles.navbarWrap}>
-                    <View style={styles.mock}/>
+                    <View style={{width: 40, height: 40}}/>
                     <Image source={require('../img/LOGOREVERSE.jpg')} style={styles.logo} />
-                    <TouchableHighlight style={{height: 30}} onPress={this.onMenuPress}>
-                        <View style={styles.menuIconWrap}>
-                            <Image source={require("../img/menu_icon.png")} style={styles.menuIcon}/>
-                        </View>
-                    </TouchableHighlight>
+                    <MenuButton style={styles.mock} onMenuPress={this.onMenuPress.bind(this)}/>
+                    <Menu style={styles.menu} open={this.state.menuAnimationRunning}>
+                    </Menu>
                 </View>
             </View>
         )
@@ -27,40 +35,16 @@ class Header extends React.Component{
 
 export default Header;
 
+const MenuButton = (props) => {
 
-const styles = StyleSheet.create({
-    container: {
-        position: 'absolute',
-        top: 0,
-        backgroundColor: "green",
-        width: "100%",
-        height: 80,
-        alignItems: "center",
-        justifyContent: "flex-end",
-        padding: 5
-    },
-    logo: {
-        width: 40,
-        height:40,
-    },
-    mock: {
-        width: 40,
-        height: 40
-    },
-    navbarWrap: {
-        width: "100%",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingRight: 10,
-        paddingLeft: 10
-    },
-    menuIcon:{
-        width: 30,
-        height: 30,
-        justifyContent: "flex-end"
-    },
-    menuIconWrap: {
-        justifyContent: "flex-end"
-    }
-});
+    const handlePress = () => props.onMenuPress()
+
+    return (
+        <TouchableHighlight style={{height: 30}} onPress={handlePress}>
+            <View style={styles.menuIconWrap}>
+                <Image source={require("../img/menu_icon.png")} style={styles.menuIcon}/>
+            </View>
+        </TouchableHighlight>
+    )
+}
+
