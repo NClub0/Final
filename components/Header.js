@@ -23,10 +23,9 @@ class Header extends React.Component{
             <View style = {styles.container}>
                 <View style={styles.navbarWrap}>
                     <View style={{width: 40, height: 40}}/>
-                    <Image source={require('../img/LOGOREVERSE.jpg')} style={styles.logo} />
+                    <Image source={require('../assets/img/LOGOREVERSE.jpg')} style={styles.logo} />
                     <MenuButton style={styles.mock} onMenuPress={this.onMenuPress.bind(this)}/>
-                    <Menu style={styles.menu} open={this.state.menuAnimationRunning}>
-                    </Menu>
+                    <Menu style={styles.menu} open={this.state.menuAnimationRunning} />
                 </View>
             </View>
         )
@@ -42,7 +41,7 @@ const MenuButton = (props) => {
     return (
         <TouchableHighlight style={{height: 30}} onPress={handlePress}>
             <View style={styles.menuIconWrap}>
-                <Image source={require("../img/menu_icon.png")} style={styles.menuIcon}/>
+                <Image source={require("../assets/img/menu_icon.png")} style={styles.menuIcon}/>
             </View>
         </TouchableHighlight>
     )

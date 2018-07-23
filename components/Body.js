@@ -6,7 +6,7 @@ class Body extends React.Component{
     render(){
         return (
             <View style={styles.body}>
-
+                <Text>sdosaoj</Text>
             </View>
         )
     }
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "auto",
         alignItems: "center",
-        marginTop: 80
+        marginTop: 80,
+        zIndex:-1
     }
 });

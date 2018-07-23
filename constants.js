@@ -1,4 +1,13 @@
 import {StyleSheet} from "react-native";
+import { Font } from "expo";
+
+export const fonts = {
+    items: Font.loadAsync({
+        'comfortaa-bold' : require('./assets/fonts/Comfortaa-Bold.ttf'),
+        'comfortaa-regular' : require('./assets/fonts/Comfortaa-Regular.ttf'),
+        'comfortaa-light' : require('./assets/fonts/Comfortaa-Light.ttf')
+    })
+}
 
 const Dimensions = require('Dimensions');
 
@@ -7,6 +16,7 @@ export const vh = Dimensions.get('window').height;
 
 export const myNclubColor = "rgb(33, 73, 15)";
 
+export const MenuWidth = 0.5 * vw;
 
 export const styles = StyleSheet.create({
     container: {
@@ -47,10 +57,22 @@ export const styles = StyleSheet.create({
         position: "absolute",
         backgroundColor: myNclubColor,
         height: 0.88*vh,
-        width: 0.5*vw,
-        zIndex: -1,
+        width: MenuWidth,
+        zIndex: 10,
         bottom: -0.89*vh,
         right: -0.5*vw,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    menuContainer: {
+        padding: 40,
+        backgroundColor: "white",
+        width: "90%",
+        height: "90%",
+        alignItems: "flex-start",
+        justifyContent: "space-around",
+    },
+    menuItem: {
+        // adjust font family/size settings and try to style a bit
     }
-
 });
