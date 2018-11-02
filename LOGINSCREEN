@@ -1,0 +1,96 @@
+import React, { Component } from 'react';
+import {
+  Container,
+  Header,
+  Content,
+  Form,
+  Item,
+  Input,
+  Label,
+} from 'native-base';
+import { Button, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+
+export default class LoginScreen extends React.Component {
+  render() {
+    return (
+      <Container>
+        <Header />
+        <Content>
+           <Form>
+            <Item stackedLabel>
+              <Label>Username</Label>
+              <Input />
+            </Item>
+            <Item stackedLabel last>
+              <Label>Password</Label>
+              <Input />
+            </Item>
+          </Form>
+          <TouchableOpacity
+            style={styles.LoginButton}
+            underlayColor="#fff">
+            <Text style={styles.LoginText}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.LoginButton}
+            underlayColor="#fff">
+            <Text style={styles.LoginText}>Sign up</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.FacebookButton}
+            underlayColor="#fff">
+            <Text  style={styles.FacebookText}>Login with Facebook</Text>
+          </TouchableOpacity>
+
+          
+          
+          
+
+      
+        </Content>
+      </Container>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  LoginButton: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginTop: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: '#1E6738',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
+
+  LoginText: {
+    color: '#fff',
+    textAlign: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
+    
+  },
+  FacebookButton: {
+    marginRight: 40,
+    marginLeft: 40,
+    marginTop: 5,
+    paddingTop: 10,
+    paddingBottom: 10,
+    backgroundColor: '#3B5998',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
+  FacebookText:{
+    color: '#fff',
+    textAlign: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
+
+  }
+});
